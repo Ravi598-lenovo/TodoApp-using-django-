@@ -13,6 +13,10 @@ A simple Django-based To-Do List project where users can add, update, and delete
 - Django
 - HTML + CSS
 
+## 📸 Screenshot
+
+![To-Do App Screenshot](https://github.com/Ravi598-lenovo/TodoApp-using-django-/blob/main/Screenshot%202025-06-13%20110908.png?raw=true)
+
 ## ▶️ How to Run
 
 ```bash
