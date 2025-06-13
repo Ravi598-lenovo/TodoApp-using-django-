@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{% static 'todoapp/style.css' %}">
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .done { text-decoration: line-through; color: gray; }
+    </style>
+</head>
+<body>
+    <h1>My To-Do List</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Add new task" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li class="{% if task.completed %}done{% endif %}">
+                {{ task.title }}
+                {% if not task.completed %}
+                    <a href="{% url 'complete' task.id %}">✔️ Complete</a>
+                {% endif %}
+                <a href="{% url 'delete' task.id %}">🗑️ Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
